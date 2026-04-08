@@ -33,13 +33,5 @@ pipeline {
                 }
             }
         }
-
-        stage('Deploy to Kubernetes') {
-            steps {
-                sh '''
-                kubectl set image deployment/salary-service salary=$DOCKER_IMAGE:latest
-                '''
-            }
-        }
     }
 }
