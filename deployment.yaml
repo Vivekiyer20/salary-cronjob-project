@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: salary-service
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: salary
+  template:
+    metadata:
+      labels:
+        app: salary
+    spec:
+      containers:
+      - name: salary
+        image: salary-service:latest
+        imagePullPolicy: Never
+        ports:
+        - containerPort: 3000
